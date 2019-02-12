@@ -60,5 +60,10 @@ Install the Azure Functions extension, this allows easy deployment directly from
 
 3. Use the `Get publish profile` option in the overview page of the Azure Function in the Azure Portal. Publish with MSDeploy.
 
+## Test your deploy
 
+Go to the Azure Portal Function
+Go to the negotiate function 
+Supply a header `x-ms-signalr-userid` and Run the request.
+You should get an JSON with URL and Token.
 
