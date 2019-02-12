@@ -1,5 +1,7 @@
-
 Part of the Serverless Azure-based .Net 2.0 Standard Broadcast solution.
+See this [client library repository](https://github.com/bitfox-git/azurebroadcast-client) for more.
+
+[![Build status](https://dev.azure.com/bitfox/AzureBroadcast.Functions/_apis/build/status/Build%20AzureBroadcast.Functions)](https://dev.azure.com/bitfox/AzureBroadcast.Functions/_build/latest?definitionId=4)
 
 # Bitfox.AzureBroadcast.Functions 
 
