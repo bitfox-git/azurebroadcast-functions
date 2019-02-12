@@ -40,6 +40,13 @@ In any .Net 2.0 Standard solution:
 5. Within the created Azure Function navigate to Platform Features / Application Settings. 
 6. Add new Application Setting with the name `AzureSignalRConnectionString` and the value of the Azure SignalR endpoint as recorded in step 3. 
 
+
+## Deploy a release
+
+Use the latest release on Github tab releases to get the precompiled functions as zip. 
+Upload the zipfile in the Azure Portal.
+
+
 ## Build and Deploy of the Azure Function
 
 Clone this repo. You will need .net 2.x SDK for building.
