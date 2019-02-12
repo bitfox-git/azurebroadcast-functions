@@ -1,5 +1,7 @@
-
 Part of the Serverless Azure-based .Net 2.0 Standard Broadcast solution.
+See this [client library repository](https://github.com/bitfox-git/azurebroadcast-client) for more.
+
+[![Build status](https://dev.azure.com/bitfox/AzureBroadcast.Functions/_apis/build/status/Build%20AzureBroadcast.Functions)](https://dev.azure.com/bitfox/AzureBroadcast.Functions/_build/latest?definitionId=4)
 
 # Bitfox.AzureBroadcast.Functions 
 
@@ -39,6 +41,13 @@ In any .Net 2.0 Standard solution:
 4. Use the Azure portal to setup an Azure Function.
 5. Within the created Azure Function navigate to Platform Features / Application Settings. 
 6. Add new Application Setting with the name `AzureSignalRConnectionString` and the value of the Azure SignalR endpoint as recorded in step 3. 
+
+
+## Deploy a release
+
+Use the latest release on Github tab releases to get the precompiled functions as zip. 
+Upload the zipfile in the Azure Portal.
+
 
 ## Build and Deploy of the Azure Function
 
