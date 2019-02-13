@@ -36,17 +36,40 @@ namespace Bitfox.AzureBroadcast.Functions
             {
                 message = stream.ReadToEnd();
             }
-           
+            var wrapped = JsonConvert.DeserializeObject<MessageWrapper>(message);
+
             return signalRMessages.AddAsync(
                 new SignalRMessage
                 {
-                    //Only broadcasting to all connected clients. No direct user or group based communication. 
-                    //UserId = ,
-                    //GroupName = ,
-
-                    //Target is the method name on the clientside.
+                    UserId = wrapped.toUser,
+                    GroupName = wrapped.toGroupName,
                     Target = "newMessage",
                     Arguments = new[] { message }
+                });
+
+        }
+
+        [FunctionName("groupaction")]
+        public static Task GroupActions(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
+            [SignalR(HubName = "general")]IAsyncCollector<SignalRGroupAction> signalRGroupAction)
+        {
+           
+
+            string gamstring;
+            using (StreamReader stream = new StreamReader(req.Body))
+            {
+                gamstring = stream.ReadToEnd();
+            }
+            var gam = JsonConvert.DeserializeObject<GroupActionMessage>(gamstring);
+            string userId = req.Headers["x-ms-signalr-userid"];
+           
+            return signalRGroupAction.AddAsync(
+                new SignalRGroupAction
+                {
+                    Action = gam.groupAction,
+                    GroupName = gam.groupName,
+                    UserId = userId
                 });
 
         }
