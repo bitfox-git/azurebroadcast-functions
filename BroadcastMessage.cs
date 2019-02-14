@@ -1,10 +1,10 @@
 
 namespace Bitfox.AzureBroadcast.Functions
 {
-     public class MessageWrapper {
+     public class BroadcastMessage {
             public string msg;
+            public string fromUser;
             public string toGroupName;
             public string toUser;
-            public string fromUser;
         }
 }

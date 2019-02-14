@@ -54,8 +54,6 @@ namespace Bitfox.AzureBroadcast.Functions
             [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
             [SignalR(HubName = "general")]IAsyncCollector<SignalRGroupAction> signalRGroupAction)
         {
-           
-
             string gamstring;
             using (StreamReader stream = new StreamReader(req.Body))
             {

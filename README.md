@@ -5,7 +5,7 @@ See this [client library repository](https://github.com/bitfox-git/azurebroadcas
 
 # Bitfox.AzureBroadcast.Functions 
 
-These Azure Functions are part of the Bitfox.AzureBroadcast feature and should be used in combination with a Azure SignalR service in Serverless mode and the Bitfox.AzureBroadcast.Client for easy broadcasting in .Net 2.0 Standard solutions. For example: Desktop applications (WPF/WinForms) in need of an easy interclient communication, comparable with UDP broadcasting on a local network. 
+These Azure Functions are part of the Bitfox.AzureBroadcast feature and should be used in combination with a Azure SignalR service in Serverless mode and the Bitfox.AzureBroadcast.Client for easy real-time messaging in .Net 2.0 Standard solutions. For example: Desktop applications (WPF/WinForms) in need of an easy interclient communication, comparable with UDP broadcasting on a local network. 
 
 ## Sample usage
 
@@ -28,14 +28,11 @@ In any .Net 2.0 Standard solution:
 
 ### Setup an Azure SignalR service
 
-1. Create service in Azure Portal
-
-2. Change Feature Flag 
-
+1. Create the Azure SignalR service in Azure Portal
+2. Change the service Feature Flag 
 ![](doc/FeatureFlags.png "Create Azure SignalR service")
-
 3. Copy and save the service endpoint in settings/key menu for later use.
-
+    
 ### Setup an Azure Functions endpoint
 
 4. Use the Azure portal to setup an Azure Function.
