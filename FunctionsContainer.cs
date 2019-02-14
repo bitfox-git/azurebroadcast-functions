@@ -36,7 +36,7 @@ namespace Bitfox.AzureBroadcast.Functions
             {
                 message = stream.ReadToEnd();
             }
-            var wrapped = JsonConvert.DeserializeObject<MessageWrapper>(message);
+            var wrapped = JsonConvert.DeserializeObject<BroadcastMessage>(message);
 
             return signalRMessages.AddAsync(
                 new SignalRMessage
