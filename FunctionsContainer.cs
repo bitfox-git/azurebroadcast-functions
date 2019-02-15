@@ -24,7 +24,7 @@ namespace Bitfox.AzureBroadcast.Functions
         public static string Info(
         [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)           
         {
-            var version = Assembly.GetEntryAssembly().GetName().Version.ToString();
+            var version = typeof(FunctionsContainer).Assembly.GetName().Version.ToString();
             var signalrsettingfound = azure!="";
             return $@"Version  : {version}  
                       AzureSignalRConnectionString found : {signalrsettingfound}";
