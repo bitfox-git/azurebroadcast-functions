@@ -26,13 +26,13 @@ namespace Bitfox.AzureBroadcast.Functions
         {
             var version = Assembly.GetEntryAssembly().GetName().Version.ToString();
             var signalrsettingfound = azure!="";
-            return $"Version  : {version}" + 
-                   $"AzureSignalRConnectionString found : {signalrsettingfound}";
+            return $@"Version  : {version}  
+                      AzureSignalRConnectionString found : {signalrsettingfound}";
         }
 
         [FunctionName("negotiate")]
         public static SignalRConnectionInfo Negotiate(
-            [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function)] HttpRequest req,
             [SignalRConnectionInfo(HubName = "general", UserId = "{headers.x-ms-signalr-userid}")] SignalRConnectionInfo connectionInfo)
         {
             return connectionInfo;
@@ -41,7 +41,7 @@ namespace Bitfox.AzureBroadcast.Functions
 
         [FunctionName("broadcast")]
         public static Task Broadcast(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post")]HttpRequest req,
             [SignalR(HubName = "general")]IAsyncCollector<SignalRMessage> signalRMessages)
         {
            
@@ -65,7 +65,7 @@ namespace Bitfox.AzureBroadcast.Functions
 
         [FunctionName("groupaction")]
         public static Task GroupActions(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post")]HttpRequest req,
             [SignalR(HubName = "general")]IAsyncCollector<SignalRGroupAction> signalRGroupAction)
         {
             string gamstring;

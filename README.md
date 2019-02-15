@@ -12,10 +12,10 @@ These Azure Functions are part of the Bitfox.AzureBroadcast feature and should b
 In any .Net 2.0 Standard solution:
 
 ``` csharp
-    var client = new BroadcastClient<string>('endpoint-of-azure-functions');
+    var client = new BroadcastClient<string>('endpoint-of-azure-functions','hostkey');
 
-    client.onMessage = (msg) => { 
-        //do something usefull with received messages;
+    client.onMessage = (msg, info) => { 
+        //do something useful with received messages;
 
     }
 
@@ -38,6 +38,9 @@ In any .Net 2.0 Standard solution:
 4. Use the Azure portal to setup an Azure Function.
 5. Within the created Azure Function navigate to Platform Features / Application Settings. 
 6. Add new Application Setting with the name `AzureSignalRConnectionString` and the value of the Azure SignalR endpoint as recorded in step 3. 
+7. Write down the default host key found when you click on manage on one of the deployed functions.
+
+![](doc/HostKeys.png "Retrieve host key after deploy")
 
 
 ## Deploy a release
@@ -69,7 +72,5 @@ Install the Azure Functions extension, this allows easy deployment directly from
 ## Test your deploy
 
 Go to the Azure Portal Function
-Go to the negotiate function 
-Supply a header `x-ms-signalr-userid` and Run the request.
-You should get an JSON with URL and Token.
+Go to the `info` function, this function is reachable anonymous, with a host key.
 
