@@ -38,7 +38,8 @@ In any .Net 2.0 Standard solution:
 4. Use the Azure portal to setup an Azure Function.
 5. Within the created Azure Function navigate to Platform Features / Application Settings. 
 6. Add new Application Setting with the name `AzureSignalRConnectionString` and the value of the Azure SignalR endpoint as recorded in step 3. 
-7. Write down the default host key found when you click on manage on one of the deployed functions.
+7. Deploy the functions (see below)
+8. Write down the default host key found when you click on manage on one of the deployed functions.
 
 ![](doc/HostKeys.png "Retrieve host key after deploy")
 
@@ -65,12 +66,14 @@ dotnet publish --configuration Release
 
 Install the Azure Functions extension, this allows easy deployment directly from vs-code.
 
-2. Zip the publish folder and use the Azure portal to upload the zip. 
+2. Zip file deployment.
+
+Download the latest release zip file `s.zip` from the GitHub release tab. Go to https://<your-appname>.scm.azurewebsites.net/ZipDeployUI  and drop the zip file. 
 
 3. Use the `Get publish profile` option in the overview page of the Azure Function in the Azure Portal. Publish with MSDeploy.
 
 ## Test your deploy
 
 Go to the Azure Portal Function
-Go to the `info` function, this function is reachable anonymous, with a host key.
+Go to the `info` function, this function is reachable anonymous, without a host key. And click 'run'.
 
